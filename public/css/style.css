@@ -1,12 +1,12 @@
 :root {
   --white: #f3f3f3;
-  --blue: #4361ee;
+  --black: #333;
   --red: #ef4444;
   --yellow: #f59e0b;
-  --lavender: #F8BDEB;
-  --bermuda: #78D6C6;
+  --lavender: #e680d0;
+  --bermuda: #5bb5a6;
   --greenyellow: #adff2f;
-  --lightblue: #89CFF3;
+  --lightblue: #77b1ce;
   --blue: #427D9D;
   --rounded-small: 10px;
   --border : 1px solid rgba(0, 0, 0, 0.2);
@@ -90,24 +90,28 @@ main {
 }
 
 .information__item-income {
-  background-color: var(--lightblue);
+  color: var(--lightblue);
+  border: 3px solid var(--lightblue);
 }
 
 .information__item-spending {
-  background-color: var(--lavender);
+  color: var(--lavender);
+  border: 3px solid var(--lavender);
 }
 
 .information__item-balance {
-  background-color: var(--bermuda);
+  color: var(--bermuda);
+  border: 3px solid var(--bermuda);
 }
 
 .information__item-title {
   font-size: 20px;
-  font-weight: bold;
 }
 
 .information__item-amount {
   font-size: 35px;
+  font-weight: bold;
+  color: var(--black);
 }
 
 .statistics {
