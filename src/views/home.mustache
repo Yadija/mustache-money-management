@@ -36,9 +36,28 @@
       </ul>
     </section>
 
-    <section class="statistics">Stat</section>
+    <section class="statistics">
+      <section class="statistics__header">
+        <span class="statistics__hidden"></span>
+        <h2 class="statistics__title">Annual Statistics</h2>
+        <section class="statistics__filter">
+          <select class="statistics__filter-select">
+            <option value="2023">2023</option>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+          </select>
+        </section>
+      </section>
+      <section class="statistics__chart">
+        <canvas id="statistics"></canvas>
+      </section>
+    </section>
     <section class="interaction">Interaction</section>
     <section class="chart-bar">Chart</section>
   </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script/script.js"></script>
 </body>
 </html>

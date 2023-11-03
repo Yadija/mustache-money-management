@@ -1,6 +1,5 @@
 :root {
   --white: #f3f3f3;
-  --pink: #b5179e;
   --blue: #4361ee;
   --red: #ef4444;
   --yellow: #f59e0b;
@@ -49,7 +48,7 @@ body {
   margin-left: 10px;
 }
 
-.statistics, .interaction, .chart-bar {
+.interaction, .chart-bar {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -113,7 +112,48 @@ main {
 
 .statistics {
   grid-area: statistics;
-  background: var(--pink);
+  margin: 10px;
+  border: var(--border);
+  border-radius: var(--rounded-small);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.statistics__header {
+  width: 100%;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.statistics__title {
+  text-align: center;
+  flex: 3;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.statistics__hidden, .statistics__filter {
+  flex: 1;
+}
+
+.statistics__filter-select {
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: var(--rounded-small);
+  border: var(--border);
+  cursor: pointer;
+  outline: none;
+}
+
+.statistics__chart {
+  width: 100%;
+}
+
+.statistics__chart canvas {
+  margin: 10px;
 }
 
 .interaction {

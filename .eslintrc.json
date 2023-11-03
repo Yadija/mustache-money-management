@@ -15,6 +15,7 @@
         "sourceType": "module",
         "project": ["tsconfig.json"]
     },
+    "ignorePatterns": ["public/**/*.js"],
     "rules": {
         "no-var": "error",
         "semi": "error",
