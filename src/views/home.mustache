@@ -91,7 +91,20 @@
       </section>
     </section>
 
-    <section class="chart-bar">Chart</section>
+    <section class="chart-bar">
+      <section class="chart-bar__button">
+        <button class="chart-bar__button-item button__active">Income</button>
+        <button class="chart-bar__button-item">Expense</button>
+      </section>
+      <section class="chart-bar__chart">
+        <section class="chart-bar__chart-item">
+          <canvas id="doughnut" class="chart-bar__chart-doughnut"></canvas>
+        </section>
+        <section class="chart-bar__chart-item">
+          <canvas id="polar" class="chart-bar__chart-polar"></canvas>
+        </section>
+      </section>
+    </section>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
