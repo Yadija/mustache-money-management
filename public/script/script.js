@@ -1,42 +1,50 @@
+const MONTHS = {
+  1: 'Jan',
+  2: 'Feb',
+  3: 'Mar',
+  4: 'Apr',
+  5: 'May',
+  6: 'Jun',
+  7: 'Jul',
+  8: 'Aug',
+  9: 'Sep',
+  10: 'Oct',
+  11: 'Nov',
+  12: 'Dec'
+}
+
 const main = () => {
-  const statistics= document.getElementById('statistics');
   const doughnut= document.getElementById('doughnut');
   const polar= document.getElementById('polar');
-  const data = {
-    labels: ['Salary', 'Dividend', 'Loan', 'Investment', 'Money Refund'],
-    datasets: [{
-      label: '',
-      data: [100000, 20000, 30000, 40000, 50000],
-      borderWidth: 1
-    }]
-  };
 
-  const dataStatistics = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-    datasets: [{
-      label: 'Income',
-      data: [100000, 40000, 30000, 40000, 50000, 30000, 70000, 80000, 50000, 100000, 110000, 90000],
-      borderWidth: 1
-    },
-    {
-      label: 'Expense',
-      data: [20000, 30000, 40000, 20000, 60000, 70000, 40000, 90000, 70000, 80000, 50000, 60000],
-      borderWidth: 1
-    }]
-  };
+  // set selected in option
+  const year = new Date().getFullYear();
+  const option = document.querySelector(`option[value='${year}']`);
+  option.setAttribute('selected', 'selected');
 
-  const options = {
-    plugins: {
-      legend: {
-        position: window.matchMedia('(max-device-width: 1024px)').matches ? 'right' : 'top',
+  // statistics chart
+  let statisticsChart;
+  const statistics = (year) => {
+    const statisticsCanvas = document.getElementById('statisticsCanvas');
+    const statisticsData = document.getElementById('statisticsData');
+    const annuals = JSON.parse(statisticsData.dataset.annuals);
+    const getAnnualsByYear = annuals.filter(annual => annual.year === year);
+
+    const data = {
+      labels: Object.values(MONTHS),
+      datasets: [{
+        label: 'Income',
+        data: getAnnualsByYear[0].incomes.map(item => item.value),
+        borderWidth: 1
       },
-    }
-  }
+      {
+        label: 'Expense',
+        data: getAnnualsByYear[0].expenses.map(item => item.value),
+        borderWidth: 1
+      }]
+    };
 
-  new Chart(statistics, {
-    type: 'line',
-    data: dataStatistics,
-    options: {
+    const options = {
       responsive: true,
       plugins: {
         legend: {
@@ -52,8 +60,35 @@ const main = () => {
           beginAtZero: true
         }
       }
-    },
-  });
+    };
+
+    if (statisticsChart) statisticsChart.destroy();
+    statisticsChart = new Chart(statisticsCanvas, { type: 'line', data, options });
+  }
+  statistics(year);
+
+  const statisticsFilter = document.getElementById('statisticsFilter');
+  statisticsFilter.addEventListener('change', (event) => {
+    statistics(Number(event.target.value));
+  })
+
+
+  const data = {
+    labels: ['Salary', 'Dividend', 'Loan', 'Investment', 'Money Refund'],
+    datasets: [{
+      label: '',
+      data: [100000, 20000, 30000, 40000, 50000],
+      borderWidth: 1
+    }]
+  };
+
+  const options = {
+    plugins: {
+      legend: {
+        position: window.matchMedia('(max-device-width: 1024px)').matches ? 'right' : 'top',
+      },
+    }
+  }
 
   new Chart(doughnut, {
     type: 'doughnut',

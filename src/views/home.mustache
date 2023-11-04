@@ -22,15 +22,15 @@
     <section class="information">
       <ul class="information__list">
         <li class="information__item information__item-income">
-          <span class="information__item-title">Income</span>
+          <span class="information__item-title">Incomes</span>
           <span class="information__item-amount">100.000</span>
         </li>
         <li class="information__item information__item-spending">
-          <span class="information__item-title">Expense</span>
+          <span class="information__item-title">Expenses</span>
           <span class="information__item-amount">20.000</span>
         </li>
         <li class="information__item information__item-balance">
-          <span class="information__item-title">Balance</span>
+          <span class="information__item-title">Balances</span>
           <span class="information__item-amount">80.000</span>
         </li>
       </ul>
@@ -41,16 +41,15 @@
         <span class="statistics__hidden"></span>
         <h2 class="statistics__title">Annual Statistics</h2>
         <section class="statistics__filter">
-          <select class="statistics__filter-select">
-            <option value="2023">2023</option>
-            <option value="2022">2022</option>
-            <option value="2021">2021</option>
-            <option value="2020">2020</option>
+          <select id="statisticsFilter" class="statistics__filter-select">
+            {{#years}}
+              <option value="{{ . }}">{{ . }}</option>
+            {{/years}}
           </select>
         </section>
       </section>
-      <section class="statistics__chart">
-        <canvas id="statistics"></canvas>
+      <section id="statisticsData" class="statistics__chart" data-annuals="{{ annuals }}">
+        <canvas id="statisticsCanvas"></canvas>
       </section>
     </section>
 
