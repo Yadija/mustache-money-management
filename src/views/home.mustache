@@ -62,8 +62,9 @@
           <section class="interaction__history-header-title">
             <h2 class="interaction__history-title">History</h2>
             <section class="interaction__history-button">
-              <button class="button__active">Newest</button>
-              <button class="">Oldest</button>
+              <button class="button__active" type="button">Newest</button>
+              {{! <button class="button__active" type="button">Newest</button> }}
+              {{! <button class="" type="button">Oldest</button> }}
             </section>
           </section>
           <ul class="interaction__history-header-list">
@@ -76,11 +77,13 @@
         </section>
         <section class="interaction__history-body">
           <ul class="interaction__history-body-list">
+          {{#history}}
             <li class="interaction__history-body-item">
-              <span class="interaction__history-body-category">Salary</span>
-              <span class="interaction__history-body-date">12, Jun 2020</span>
-              <span class="interaction__history-body-amount">100000</span>
+              <span class="interaction__history-body-category">{{category}}</span>
+              <span class="interaction__history-body-date">{{date}}</span>
+              <span class="interaction__history-body-amount">{{amount}}</span>
             </li>
+          {{/history}}
           </ul>
         </section>
       </section>

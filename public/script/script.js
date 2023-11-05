@@ -49,10 +49,6 @@ const main = () => {
       plugins: {
         legend: {
           position: 'top',
-        },
-        title: {
-          display: true,
-          text: 'Annual Report'
         }
       },
       scales: {
