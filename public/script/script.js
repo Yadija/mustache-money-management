@@ -97,6 +97,16 @@ const main = () => {
     data: data,
     options
   })
+
+  const buttons = document.querySelectorAll('.chart-bar__button-item');
+  buttons.forEach(button => {
+    button.addEventListener('click', (event) => {
+      if (event.target.classList.contains('button__active')) return;
+      buttons.forEach(button => button.classList.remove('button__active'));
+      event.target.classList.add('button__active');
+      console.log(event.target.textContent);
+    })
+  })
 }
 
 main();
