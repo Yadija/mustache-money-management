@@ -68,43 +68,66 @@ const main = () => {
     statistics(Number(event.target.value));
   })
 
-
-  const data = {
-    labels: ['Salary', 'Dividend', 'Loan', 'Investment', 'Money Refund'],
-    datasets: [{
-      label: '',
-      data: [100000, 20000, 30000, 40000, 50000],
-      borderWidth: 1
-    }]
-  };
-
-  const options = {
-    plugins: {
-      legend: {
-        position: window.matchMedia('(max-device-width: 1024px)').matches ? 'right' : 'top',
+  let doughtnutChart, polarChart;
+  const chartBar = (type) => {
+    const dataChart = {
+      incomes: {
+        Salary: 10000,
+        Bonus: 5000,
+        Dividend: 8000,
       },
+      expenses: {
+        Tax: 1000,
+        Transport: 3000,
+        Rent: 20000,
+        Food: 4000,
+      }
+    };
+
+    const data = {
+      labels: Object.keys(dataChart[type]),
+      datasets: [{
+        label: '',
+        data: Object.values(dataChart[type]),
+        borderWidth: 1
+      }]
+    };
+
+    const options = {
+      plugins: {
+        legend: {
+          position: window.matchMedia('(max-device-width: 1024px)').matches ? 'right' : 'top',
+        },
+      }
     }
+
+    if (doughtnutChart && polarChart) {
+      doughtnutChart.destroy();
+      polarChart.destroy();
+    }
+
+    doughtnutChart = new Chart(doughnut, {
+      type: 'doughnut',
+      data: data,
+      options, 
+    });
+
+    polarChart = new Chart(polar, {
+      type: 'polarArea',
+      data: data,
+      options
+    })
   }
-
-  new Chart(doughnut, {
-    type: 'doughnut',
-    data: data,
-    options, 
-  });
-
-  new Chart(polar, {
-    type: 'polarArea',
-    data: data,
-    options
-  })
+  chartBar('incomes');
 
   const buttons = document.querySelectorAll('.chart-bar__button-item');
   buttons.forEach(button => {
     button.addEventListener('click', (event) => {
       if (event.target.classList.contains('button__active')) return;
+
       buttons.forEach(button => button.classList.remove('button__active'));
       event.target.classList.add('button__active');
-      console.log(event.target.textContent);
+      chartBar(event.target.textContent.toLowerCase());
     })
   })
 }
