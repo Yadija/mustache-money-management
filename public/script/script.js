@@ -70,18 +70,10 @@ const main = () => {
 
   let doughtnutChart, polarChart;
   const chartBar = (type) => {
+    const chartBar = document.getElementById('chartBar');
     const dataChart = {
-      incomes: {
-        Salary: 10000,
-        Bonus: 5000,
-        Dividend: 8000,
-      },
-      expenses: {
-        Tax: 1000,
-        Transport: 3000,
-        Rent: 20000,
-        Food: 4000,
-      }
+      incomes: JSON.parse(chartBar.dataset.incomes),
+      expenses: JSON.parse(chartBar.dataset.expenses),
     };
 
     const data = {

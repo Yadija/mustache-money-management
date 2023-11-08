@@ -23,15 +23,15 @@
       <ul class="information__list">
         <li class="information__item information__item-income">
           <span class="information__item-title">Incomes</span>
-          <span class="information__item-amount">100.000</span>
+          <span class="information__item-amount">{{ totalIncome }}</span>
         </li>
         <li class="information__item information__item-spending">
           <span class="information__item-title">Expenses</span>
-          <span class="information__item-amount">20.000</span>
+          <span class="information__item-amount">{{ totalExpense }}</span>
         </li>
         <li class="information__item information__item-balance">
           <span class="information__item-title">Balances</span>
-          <span class="information__item-amount">80.000</span>
+          <span class="information__item-amount">{{ total }}</span>
         </li>
       </ul>
     </section>
@@ -55,7 +55,7 @@
 
     <section class="interaction">
       <section class="interaction__date">
-        <p class="interaction__date-title">01, Nov 2023 - 31, Nov 2023</p>
+        <p class="interaction__date-title">{{ stringDate }}</p>
       </section>
       <section class="interaction__history">
         <section class="interaction__history-header">
@@ -93,10 +93,10 @@
       </section>
     </section>
 
-    <section class="chart-bar">
+    <section id="chartBar" class="chart-bar" data-incomes="{{ incomes }}" data-expenses="{{ expenses }}">
       <section class="chart-bar__button">
-        <button class="chart-bar__button-item button__active">Income</button>
-        <button class="chart-bar__button-item">Expense</button>
+        <button class="chart-bar__button-item button__active">Incomes</button>
+        <button class="chart-bar__button-item">Expenses</button>
       </section>
       <section class="chart-bar__chart">
         <section class="chart-bar__chart-item">

@@ -3,67 +3,35 @@
   "image": "https://ui-avatars.com/api/?name=John+Doe",
   "transactions": [
     {
-      "id": 1675210200000,
-      "date": "2023-02-01",
+      "id": 1672422400000,
+      "date": "2022-12-31",
+      "type": "income",
+      "category": "donation",
+      "description": "Donation from Mary",
+      "amount": 5000
+    },
+    {
+      "id": 1672422400000,
+      "date": "2022-12-31",
+      "type": "expense",
+      "category": "rent",
+      "description": "Rent a car",
+      "amount": 2000
+    },
+    {
+      "id": 1672532400000,
+      "date": "2023-01-01",
       "type": "income",
       "category": "salary",
-      "description": "Salary from February",
+      "description": "Salary from January",
       "amount": 10000
     },
     {
-      "id": 1675209600000,
-      "date": "2023-02-01",
-      "type": "expense",
-      "category": "rent",
-      "description": "Rent from House",
-      "amount": 15000
-    },
-    {
-      "id": 1672534200000,
-      "date": "2023-01-01",
-      "type": "expense",
-      "category": "tax",
-      "description": "Tax from Company",
-      "amount": 1000
-    },
-    {
-      "id": 1672534200000,
-      "date": "2023-01-01",
-      "type": "expense",
-      "category": "transport",
-      "description": "Transport from Airport",
-      "amount": 3000
-    },
-    {
-      "id": 1672533900000,
-      "date": "2023-01-01",
-      "type": "expense",
-      "category": "rent",
-      "description": "Rent from Apartment",
-      "amount": 20000
-    },
-    {
-      "id": 1672533600000,
-      "date": "2023-01-01",
-      "type": "income",
-      "category": "dividend",
-      "description": "Dividend from Company",
-      "amount": 8000
-    },
-    {
-      "id": 1672533300000,
-      "date": "2023-01-01",
-      "type": "income",
-      "category": "bonus",
-      "description": "Bonus from Office",
-      "amount": 4000
-    },
-    {
-      "id": 1672532900000,
+      "id": 1672532700000,
       "date": "2023-01-01",
       "type": "expense",
       "category": "food",
-      "description": "Buy Lunch",
+      "description": "Buy snacks",
       "amount": 4000
     },
     {
@@ -75,36 +43,68 @@
       "amount": 5000
     },
     {
-      "id": 1672532700000,
+      "id": 1672532900000,
       "date": "2023-01-01",
       "type": "expense",
       "category": "food",
-      "description": "Buy snacks",
+      "description": "Buy Lunch",
       "amount": 4000
     },
     {
-      "id": 1672532400000,
+      "id": 1672533300000,
       "date": "2023-01-01",
       "type": "income",
+      "category": "bonus",
+      "description": "Bonus from Office",
+      "amount": 4000
+    },
+    {
+      "id": 1672533600000,
+      "date": "2023-01-01",
+      "type": "income",
+      "category": "dividend",
+      "description": "Dividend from Company",
+      "amount": 8000
+    },
+    {
+      "id": 1672533900000,
+      "date": "2023-01-01",
+      "type": "expense",
+      "category": "rent",
+      "description": "Rent from Apartment",
+      "amount": 20000
+    },
+    {
+      "id": 1672534200000,
+      "date": "2023-01-01",
+      "type": "expense",
+      "category": "transport",
+      "description": "Transport from Airport",
+      "amount": 3000
+    },
+    {
+      "id": 1672534200000,
+      "date": "2023-01-01",
+      "type": "expense",
+      "category": "tax",
+      "description": "Tax from Company",
+      "amount": 1000
+    },
+    {
+      "id": 1675209600000,
+      "date": "2023-02-01",
+      "type": "income",
       "category": "salary",
-      "description": "Salary from January",
+      "description": "Salary from February",
       "amount": 10000
     },
     {
-      "id": 1672422400000,
-      "date": "2022-12-31",
+      "id": 1675210200000,
+      "date": "2023-02-01",
       "type": "expense",
       "category": "rent",
-      "description": "Rent a car",
-      "amount": 2000
-    },
-    {
-      "id": 1672422400000,
-      "date": "2022-12-31",
-      "type": "income",
-      "category": "donation",
-      "description": "Donation from Mary",
-      "amount": 5000
+      "description": "Rent from House",
+      "amount": 15000
     }
   ]
 }
