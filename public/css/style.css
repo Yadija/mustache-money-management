@@ -308,6 +308,10 @@ main {
   background: var(--lavender);
 }
 
+.interaction__button-add:hover {
+  opacity: 0.8;
+}
+
 .interaction__button-import {
   flex: 1;
   background: var(--greenyellow);
@@ -355,6 +359,104 @@ main {
 
 .button__active {
   border: var(--border) !important;
+}
+
+/* modal */
+.modal-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, .3);
+  display: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.modal__title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.modal__close {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.modal__close:hover {
+  color: red;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.modal__form-label {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.modal__form-select, .modal__form-input-number, .modal__form-textarea {
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.modal__form-textarea {
+  resize: none;
+  height: 50px;
+}
+
+/* remove arrows */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.modal__form-button {
+  margin-top: 20px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: var(--blue);
+  color: white;
+}
+
+.modal__form-button:hover {
+  background-color: var(--greenyellow);
+  color: black;
 }
 
 @media (max-width: 1024px) {
@@ -427,5 +529,14 @@ main {
 
   .chart-bar__chart-item canvas {
     height: 70%;
+  }
+
+  /* modal */
+  .modal-container {
+    position: fixed;
+  }
+
+  .modal {
+    width: 90%;
   }
 }

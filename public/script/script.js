@@ -122,6 +122,65 @@ const main = () => {
       chartBar(event.target.textContent.toLowerCase());
     })
   })
+
+  // add transaction
+  const category = {
+    income: ['Salary', 'Dividend', 'Loan', 'Investment', 'Money Refund', 'Other'],
+    expense: ['Food', 'Transport', 'Housing', 'Health', 'Education', 'Entertainment', 'Other'],
+  };
+  
+  const setCategory = (type) => {
+    const categoryList = document.getElementById('category');
+    categoryList.innerHTML = '';
+    category[type].forEach(category => {
+      const option = document.createElement('option');
+      option.value = category;
+      option.innerText = category;
+      categoryList.appendChild(option);
+    });
+  }
+
+  const type = document.getElementById('type');
+  type.onchange = () => {
+    setCategory(type.value);
+  }
+
+  const buttonAdd = document.getElementById('buttonAdd');
+  buttonAdd.onclick = () => {
+    document.getElementById('date').textContent = new Date().toLocaleDateString('en-US', {
+      weekday: 'long',
+      day: '2-digit',
+      month: 'long',
+      year: 'numeric',
+    });
+    setCategory('income');
+
+    const modal = document.getElementById('modalContainer');
+    modal.style.display = 'block';
+  }
+
+  const modal = document.getElementById('modalContainer');
+  modal.onclick = (event) => {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  }
+
+  const closeButton = document.getElementById('closeButton');
+  closeButton.onclick = () => {
+    const modal = document.getElementById('modalContainer');
+    modal.style.display = 'none';
+  }
+
+  const modalFormAdd = document.getElementById('modalFormAdd');
+  modalFormAdd.onsubmit = (event) => {
+    event.preventDefault();
+
+    const modal = document.getElementById('modalContainer');
+    modal.style.display = 'none';
+
+    event.target.reset();
+  }
 }
 
 main();

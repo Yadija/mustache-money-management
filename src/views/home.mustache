@@ -11,6 +11,37 @@
   <title>{{ title }}</title>
 </head>
 <body>
+  {{! start modal add transaction }}
+  <section id="modalContainer" class="modal-container">
+    <section class="modal">
+      <section class="modal__header">
+        <h2 class="modal__title">Add New Transaction</h2>
+        <button id="closeButton" class="modal__close">&times;</button>
+      </section>
+      <form id="modalFormAdd" class="modal__form">
+        <p id="date" class="modal__form-label"></p>
+
+        <label for="type" class="modal__form-label">Type</label>
+        <select name="type" id="type" class="modal__form-select">
+          <option value="income" selected>Income</option>
+          <option value="expense">Expense</option>
+        </select>
+
+        <label for="category" class="modal__form-label">Category</label>
+        <select name="category" id="category" class="modal__form-select"></select>
+
+        <label for="amount" class="modal__form-label">Amount</label>
+        <input type="number" name="amount" id="amount" class="modal__form-input-number" min="0" required>
+
+        <label for="description" class="modal__form-label">Description</label>
+        <textarea name="description" id="description" class="modal__form-textarea" required></textarea>
+
+        <button class="modal__form-button" type="submit">Add</button>
+      </form>
+    </section>
+  </section>
+  {{! end modal add transaction }}
+
   <nav class="navigation">
     <h1 class="navigation__title">Money Management App</h1>
     <section class="navigation__user">
@@ -88,7 +119,7 @@
         </section>
       </section>
       <section class="interaction__button">
-        <button class="interaction__button-add">Add</button>
+        <button id="buttonAdd" class="interaction__button-add">Add</button>
         <button class="interaction__button-import">Import</button>
       </section>
     </section>
