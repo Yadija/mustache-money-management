@@ -6,6 +6,9 @@ export const web: Application = express();
 web.use(express.json());
 web.use(express.static('public'));
 
+// parsing request
+web.use(express.urlencoded({ extended: true }));
+
 web.set('views', './src/views');
 web.set('view engine', 'mustache');
 web.engine('mustache', mustacheExpress());
@@ -178,4 +181,12 @@ web.get('/', (req, res) => {
     total,
     stringDate,
   });
+});
+
+web.post('/', (req, res) => {
+  const request = req.body;
+  console.log(request);
+  // validate here
+
+  res.redirect('/');
 });

@@ -174,12 +174,12 @@ const main = () => {
 
   const modalFormAdd = document.getElementById('modalFormAdd');
   modalFormAdd.onsubmit = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
 
     const modal = document.getElementById('modalContainer');
     modal.style.display = 'none';
 
-    event.target.reset();
+    // event.target.reset();
   }
 }
 

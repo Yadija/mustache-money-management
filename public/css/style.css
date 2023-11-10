@@ -430,6 +430,12 @@ main {
   height: 50px;
 }
 
+.modal__form-label--optional::after {
+  content: '(optional)';
+  font-weight: lighter;
+  font-size: 13px;
+}
+
 /* remove arrows */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
