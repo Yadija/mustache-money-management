@@ -212,3 +212,22 @@ web.post('/', (req, res) => {
 
   res.redirect('/');
 });
+
+web.get('/delete/:id', (req, res) => {
+  const id = Number(req.params.id);
+  const response = JSON.parse(fs.readFileSync('./data/data.json', 'utf8'));
+
+  const findData = response.transactions.findIndex((data: any) => {
+    return data.id === id;
+  });
+
+  if (findData == -1) {
+    return res.status(404).send('<h1>Not found</h1>');
+  }
+
+  response.transactions.splice(findData, 1);
+
+  fs.writeFileSync('data/data.json', JSON.stringify(response, null, 2));
+
+  res.redirect('/');
+});
