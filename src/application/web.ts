@@ -184,9 +184,31 @@ web.get('/', (req, res) => {
 });
 
 web.post('/', (req, res) => {
-  const request = req.body;
-  console.log(request);
   // validate here
+  interface Body {
+    type: string;
+    category: string;
+    amount: number;
+    description?: string;
+  }
+  const request: Body = req.body;
+
+  const transaction = {
+    id: +new Date(),
+    date: new Date().toLocaleDateString('en-US', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+    }),
+    type: request.type,
+    category: request.category,
+    amount: Number(request.amount),
+    description: request.description,
+  };
+
+  const response = JSON.parse(fs.readFileSync('./data/data.json', 'utf8'));
+  response.transactions.push(transaction);
+  fs.writeFileSync('data/data.json', JSON.stringify(response, null, 2));
 
   res.redirect('/');
 });
