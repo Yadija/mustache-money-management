@@ -171,16 +171,6 @@ const main = () => {
     const modal = document.getElementById('modalContainer');
     modal.style.display = 'none';
   }
-
-  const modalFormAdd = document.getElementById('modalFormAdd');
-  modalFormAdd.onsubmit = (event) => {
-    // event.preventDefault();
-
-    const modal = document.getElementById('modalContainer');
-    modal.style.display = 'none';
-
-    // event.target.reset();
-  }
 }
 
 main();
