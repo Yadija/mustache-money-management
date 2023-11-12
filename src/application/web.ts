@@ -1,8 +1,7 @@
 import express, { Application } from 'express';
 import mustacheExpress from 'mustache-express';
-import fs from 'fs';
 
-import { addTransaction, loadData } from '../utils/data';
+import { addTransaction, deleteTransaction, loadData } from '../utils/data';
 
 export const web: Application = express();
 web.use(express.json());
@@ -215,19 +214,7 @@ web.post('/', (req, res) => {
 
 web.get('/delete/:id', (req, res) => {
   const id = Number(req.params.id);
-  const response = JSON.parse(fs.readFileSync('./data/data.json', 'utf8'));
-
-  const findData = response.transactions.findIndex((data: any) => {
-    return data.id === id;
-  });
-
-  if (findData == -1) {
-    return res.status(404).send('<h1>Not found</h1>');
-  }
-
-  response.transactions.splice(findData, 1);
-
-  fs.writeFileSync('data/data.json', JSON.stringify(response, null, 2));
+  deleteTransaction(id);
 
   res.redirect('/');
 });
