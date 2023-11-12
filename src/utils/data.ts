@@ -25,14 +25,14 @@ const saveContacts = (data: any) => {
 };
 
 // add new data
-const addData = (data: any) => {
-  const response = loadData();
-  response.transactions.push(data);
-  saveContacts(response);
+const addTransaction = (transaction: any) => {
+  const data = loadData();
+  data.transactions.push(transaction);
+  saveContacts(data);
 };
 
 // delete data
-const deleteData = (id: number) => {
+const deleteTransaction = (id: number) => {
   const response = loadData();
   const findTransaction = response.transactions.findIndex((transaction: any) => {
     return transaction.id === id;
@@ -46,4 +46,4 @@ const deleteData = (id: number) => {
   saveContacts(response);
 };
 
-export { loadData, addData, deleteData };
+export { loadData, addTransaction, deleteTransaction };

@@ -2,7 +2,7 @@ import express, { Application } from 'express';
 import mustacheExpress from 'mustache-express';
 import fs from 'fs';
 
-import { loadData } from '../utils/data';
+import { addTransaction, loadData } from '../utils/data';
 
 export const web: Application = express();
 web.use(express.json());
@@ -208,9 +208,7 @@ web.post('/', (req, res) => {
     description: request.description,
   };
 
-  const response = JSON.parse(fs.readFileSync('./data/data.json', 'utf8'));
-  response.transactions.push(transaction);
-  fs.writeFileSync('data/data.json', JSON.stringify(response, null, 2));
+  addTransaction(transaction);
 
   res.redirect('/');
 });
