@@ -20,7 +20,7 @@ const main = () => {
   // set selected in option
   const year = new Date().getFullYear();
   const option = document.querySelector(`option[value='${year}']`);
-  option.setAttribute('selected', 'selected');
+  if (option) option.setAttribute('selected', 'selected');
 
   // statistics chart
   let statisticsChart;
@@ -30,6 +30,7 @@ const main = () => {
     const annuals = JSON.parse(statisticsData.dataset.annuals);
     const getAnnualsByYear = annuals.filter(annual => annual.year === year);
 
+    if (annuals.length === 0) return;
     const data = {
       labels: Object.values(MONTHS),
       datasets: [{
