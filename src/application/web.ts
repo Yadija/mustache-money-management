@@ -2,6 +2,8 @@ import express, { Application } from 'express';
 import mustacheExpress from 'mustache-express';
 import fs from 'fs';
 
+import { loadData } from '../utils/data';
+
 export const web: Application = express();
 web.use(express.json());
 web.use(express.static('public'));
@@ -14,10 +16,10 @@ web.set('view engine', 'mustache');
 web.engine('mustache', mustacheExpress());
 
 web.get('/', (req, res) => {
-  const loadData = () => {
-    const response = JSON.parse(fs.readFileSync('./data/data.json', 'utf8'));
+  const load = () => {
+    const data = loadData();
 
-    const history = response.transactions
+    const history = data.transactions
       .map((transaction: any) => {
         // format category
         transaction.category = transaction.category[0].toUpperCase() + transaction.category.slice(1);
@@ -43,7 +45,7 @@ web.get('/', (req, res) => {
       .reverse();
 
     // get years from transactions
-    const years = response.transactions
+    const years = data.transactions
       .map((transaction: any) => {
         return new Date(transaction.id).getFullYear();
       })
@@ -75,7 +77,7 @@ web.get('/', (req, res) => {
 
     // fill annuals
     annuals.forEach((annual: any) => {
-      response.transactions.forEach((transaction: any) => {
+      data.transactions.forEach((transaction: any) => {
         if (new Date(transaction.id).getFullYear() === annual.year) {
           const indexMonth = new Date(transaction.id).getMonth();
 
@@ -103,7 +105,7 @@ web.get('/', (req, res) => {
     to = new Date(year, month, 0, 23, 59, 59).getTime();
 
     // get data for charts
-    const dataChart = response.transactions
+    const dataChart = data.transactions
       .map((transaction: any) => {
         if (transaction.id >= from && transaction.id <= to) {
           return {
@@ -167,7 +169,7 @@ web.get('/', (req, res) => {
     };
   };
 
-  const { history, annuals, years, incomes, expenses, totalIncome, totalExpense, total, stringDate } = loadData();
+  const { history, annuals, years, incomes, expenses, totalIncome, totalExpense, total, stringDate } = load();
 
   res.render('home', {
     title: 'Home',
