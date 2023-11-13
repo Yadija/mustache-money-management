@@ -52,6 +52,7 @@ const postTransactionController = (request: Request, response: Response) => {
 const deleteTransactionById = (request: Request, response: Response) => {
   const id = Number(request.params.id);
   transactionsService.deleteTransactionById(id);
+  request.flash('message', 'Data has been deleted');
 
   response.redirect('/');
 };
