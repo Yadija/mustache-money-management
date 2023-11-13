@@ -1,4 +1,4 @@
-import { addTransaction, loadData } from '../utils/data';
+import { addTransaction, deleteTransaction, loadData } from '../utils/data';
 
 const getHistory = () => {
   const data = loadData();
@@ -158,6 +158,10 @@ const addData = (data: any) => {
   addTransaction(transaction);
 };
 
+const deleteTransactionById = (id: number) => {
+  deleteTransaction(id);
+};
+
 export default {
   getHistory,
   getYears,
@@ -165,4 +169,5 @@ export default {
   getTransactions,
   setDate,
   addData,
+  deleteTransactionById,
 };

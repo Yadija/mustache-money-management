@@ -47,4 +47,11 @@ const postTransactionController = (request: Request, response: Response) => {
   response.redirect('/');
 };
 
-export default { getTransactionController, postTransactionController };
+const deleteTransactionById = (request: Request, response: Response) => {
+  const id = Number(request.params.id);
+  transactionsService.deleteTransactionById(id);
+
+  response.redirect('/');
+};
+
+export default { getTransactionController, postTransactionController, deleteTransactionById };
