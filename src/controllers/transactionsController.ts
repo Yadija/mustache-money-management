@@ -38,11 +38,13 @@ const getTransactionController = (request: Request, response: Response) => {
     totalExpense: totalExpense.toLocaleString('id-ID'),
     total: (totalIncome - totalExpense).toLocaleString('id-ID'),
     stringDate: `${from} - ${to}`,
+    message: request.flash('message'),
   });
 };
 
 const postTransactionController = (request: Request, response: Response) => {
   transactionsService.addData(request.body);
+  request.flash('message', 'Data has been added');
 
   response.redirect('/');
 };

@@ -172,6 +172,13 @@ const main = () => {
     const modal = document.getElementById('modalContainer');
     modal.style.display = 'none';
   }
+
+  // close message
+  const closeMessage = document.getElementById('closeMessage');
+  closeMessage.onclick = () => {
+    const message = document.getElementById('flashMessage');
+    message.style.display = 'none';
+  };
 }
 
 main();

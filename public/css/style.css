@@ -48,6 +48,7 @@ body {
 }
 
 main {
+  position: relative;
   height: 90vh;
   display: grid;
   grid-template-columns: 2fr 1.2fr 1.2fr;
@@ -463,6 +464,39 @@ input[type=number] {
 .modal__form-button:hover {
   background-color: var(--greenyellow);
   color: black;
+}
+
+/* flash message */
+.message {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+  .message__info {
+  background-color: #d1e7dd;
+  color: #0a3622;
+  border: 1px solid #a3cfbb;
+  border-radius: 10px;
+  position: sticky;
+  top: 0;
+  margin: 10px 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.message__close {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-weight: bold;
+}
+
+.message__close:hover {
+  color: red;
 }
 
 @media (max-width: 1024px) {

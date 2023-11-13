@@ -50,6 +50,16 @@
     </section>
   </nav>
   <main>
+  
+    {{#message}}
+    <section id="flashMessage" class="message">
+      <section class="message__info">
+        <p class="message__text">{{ message }}</p>
+        <button type="button" id="closeMessage" class="message__close">X</button>
+      </section>
+    </section>
+    {{/message}}
+
     <section class="information">
       <ul class="information__list">
         <li class="information__item information__item-income">
