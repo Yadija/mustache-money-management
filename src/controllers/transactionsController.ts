@@ -41,4 +41,10 @@ const getTransactionController = (request: Request, response: Response) => {
   });
 };
 
-export default { getTransactionController };
+const postTransactionController = (request: Request, response: Response) => {
+  transactionsService.addData(request.body);
+
+  response.redirect('/');
+};
+
+export default { getTransactionController, postTransactionController };

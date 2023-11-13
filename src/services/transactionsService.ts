@@ -1,4 +1,4 @@
-import { loadData } from '../utils/data';
+import { addTransaction, loadData } from '../utils/data';
 
 const getHistory = () => {
   const data = loadData();
@@ -143,10 +143,26 @@ const setDate = (timestamp: number) => {
   });
 };
 
+const addData = (data: any) => {
+  const transaction = {
+    id: +new Date(),
+    date: new Date().toLocaleDateString('en-US', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+    }),
+    ...data,
+    amount: Number(data.amount),
+  };
+
+  addTransaction(transaction);
+};
+
 export default {
   getHistory,
   getYears,
   getAnnuals,
   getTransactions,
   setDate,
+  addData,
 };
