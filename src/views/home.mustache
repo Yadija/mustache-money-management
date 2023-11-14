@@ -55,7 +55,7 @@
     <section id="flashMessage" class="message">
       <section class="message__info">
         <p class="message__text">{{ message }}</p>
-        <button type="button" id="closeMessage" class="message__close">X</button>
+        <button type="button" id="closeMessage" class="message__close">&times;</button>
       </section>
     </section>
     {{/message}}
@@ -119,7 +119,15 @@
         <section class="interaction__history-body">
           <ul class="interaction__history-body-list">
           {{#history}}
-            <li class="interaction__history-body-item">
+            <li
+              class="interaction__history-body-item"
+              data-id="{{id}}"
+              data-date="{{date}}"
+              data-type="{{type}}"
+              data-category="{{category}}"
+              data-amount="{{amount}}"
+              data-description="{{description}}"
+            >
               <span class="interaction__history-body-category">{{category}}</span>
               <span class="interaction__history-body-date">{{date}}</span>
               <span class="interaction__history-body-amount">{{amount}}</span>

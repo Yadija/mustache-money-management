@@ -5,6 +5,9 @@ const getHistory = () => {
 
   return data.transactions
     .map((transaction: any) => {
+      // format type
+      transaction.type = transaction.type[0].toUpperCase() + transaction.type.slice(1);
+
       // format category
       transaction.category = transaction.category[0].toUpperCase() + transaction.category.slice(1);
 
@@ -17,7 +20,7 @@ const getHistory = () => {
       });
 
       // set amount by type
-      if (transaction.type === 'expense') {
+      if (transaction.type === 'Expense') {
         return {
           ...transaction,
           amount: -transaction.amount,
