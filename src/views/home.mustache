@@ -50,15 +50,24 @@
     </section>
   </nav>
   <main>
-  
-    {{#message}}
+
+    {{#messageSuccess}}
     <section id="flashMessage" class="message">
-      <section class="message__info">
-        <p class="message__text">{{ message }}</p>
+      <section class="message__success">
+        <p class="message__text">{{ messageSuccess }}</p>
         <button type="button" id="closeMessage" class="message__close">&times;</button>
       </section>
     </section>
-    {{/message}}
+    {{/messageSuccess}}
+
+    {{#messageAlert}}
+    <section id="flashMessage" class="message">
+      <section class="message__alert">
+        <p class="message__text">{{ messageAlert }}</p>
+        <button type="button" id="closeMessage" class="message__close">&times;</button>
+      </section>
+    </section>
+    {{/messageAlert}}
 
     <section class="information">
       <ul class="information__list">

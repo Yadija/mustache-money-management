@@ -44,6 +44,7 @@ const deleteTransaction = (id: number) => {
 
   response.transactions.splice(findTransaction, 1);
   saveContacts(response);
+  return true;
 };
 
 export { loadData, addTransaction, deleteTransaction };

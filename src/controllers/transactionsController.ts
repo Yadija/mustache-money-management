@@ -38,22 +38,29 @@ const getTransactionController = (request: Request, response: Response) => {
     totalExpense: totalExpense.toLocaleString('id-ID'),
     total: (totalIncome - totalExpense).toLocaleString('id-ID'),
     stringDate: `${from} - ${to}`,
-    message: request.flash('message'),
+    messageSuccess: request.flash('message-success'),
+    messageAlert: request.flash('message-alert'),
   });
 };
 
 const postTransactionController = (request: Request, response: Response) => {
   transactionsService.addData(request.body);
-  request.flash('message', 'Data has been added');
 
+  request.flash('message-success', 'Data has been added');
   response.redirect('/');
 };
 
 const deleteTransactionById = (request: Request, response: Response) => {
   const id = Number(request.params.id);
-  transactionsService.deleteTransactionById(id);
-  request.flash('message', 'Data has been deleted');
+  const deleted = transactionsService.deleteTransactionById(id);
 
+  if (!deleted) {
+    request.flash('message-alert', 'Data not found');
+    response.redirect('/');
+    return;
+  }
+
+  request.flash('message-success', 'Data has been deleted');
   response.redirect('/');
 };
 

@@ -162,7 +162,7 @@ const addData = (data: any) => {
 };
 
 const deleteTransactionById = (id: number) => {
-  deleteTransaction(id);
+  return deleteTransaction(id);
 };
 
 export default {
