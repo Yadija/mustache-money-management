@@ -499,7 +499,7 @@ input[type=number] {
   gap: 10px;
 }
 
-.modal__footer-button-delete {
+.modal__footer-button-delete, .modal__button-delete {
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
@@ -509,8 +509,26 @@ input[type=number] {
   color: white;
 }
 
-.modal__footer-button-delete:hover {
+.modal__footer-button-delete:hover,
+.modal__button-delete:hover,
+.modal__button-cancel:hover {
   opacity: .75;
+}
+
+.modal__button {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.modal__button-cancel {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 /* flash message */
