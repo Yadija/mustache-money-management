@@ -540,7 +540,7 @@ input[type=number] {
   bottom: 0;
 }
 
-  .message__success {
+.message__success {
   background-color: #d1e7dd;
   color: #0a3622;
   border: 1px solid #a3cfbb;
@@ -553,7 +553,7 @@ input[type=number] {
   justify-content: space-between;
 }
 
-  .message__alert {
+.message__alert {
   background-color: #f8d7da;
   color: #58151c;
   border: 1px solid #f1aeb5;

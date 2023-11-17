@@ -285,7 +285,7 @@ const main = () => {
     modalHeader.className = 'modal__header';
     modalHeader.append(h2);
 
-  
+
     // modal button
     const deleteButton = document.createElement('button');
     deleteButton.className = 'modal__button-delete';
@@ -301,23 +301,23 @@ const main = () => {
       const modalContainer = document.getElementById('alertModalContainer');
       modalContainer.remove();
     }
-  
+
     const modalButton = document.createElement('section');
     modalButton.className = 'modal__button';
     modalButton.append(deleteButton, cancelButton);
-  
+
     // modal
     const modal = document.createElement('section');
     modal.className = 'modal';
     modal.style.width = '400px';
     modal.append(modalHeader, modalButton);
-  
+
     const modalContainer = document.createElement('section');
     modalContainer.id = 'alertModalContainer';
     modalContainer.className = 'modal-container';
     modalContainer.style.display = 'block';
     modalContainer.append(modal);
-  
+
     // add to body
     const body = document.querySelector('body');
     body.append(modalContainer);

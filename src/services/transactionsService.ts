@@ -1,10 +1,14 @@
+// interfaces
+import { IAnnual, IRequestTransaction, ITransaction } from '../interfaces';
+
+// utils
 import { addTransaction, deleteTransaction, loadData } from '../utils/data';
 
 const getHistory = () => {
   const data = loadData();
 
   return data.transactions
-    .map((transaction: any) => {
+    .map((transaction: ITransaction) => {
       // format type
       transaction.type = transaction.type[0].toUpperCase() + transaction.type.slice(1);
 
@@ -32,18 +36,18 @@ const getHistory = () => {
     .reverse();
 };
 
-const getYears = () => {
+const getYears = (): number[] => {
   const data = loadData();
 
   return data.transactions
-    .map((transaction: any) => {
+    .map((transaction: ITransaction) => {
       return new Date(transaction.id).getFullYear();
     })
     .filter((value: number, index: number, self: number[]) => self.indexOf(value) === index)
     .sort((a: number, b: number) => b - a);
 };
 
-const getAnnuals = () => {
+const getAnnuals = (): IAnnual[] => {
   const data = loadData();
   const years = getYears();
 
@@ -69,8 +73,8 @@ const getAnnuals = () => {
     };
   });
 
-  annuals.forEach((annual: any) => {
-    data.transactions.forEach((transaction: any) => {
+  annuals.forEach((annual: IAnnual) => {
+    data.transactions.forEach((transaction: ITransaction) => {
       if (new Date(transaction.id).getFullYear() === annual.year) {
         const indexMonth = new Date(transaction.id).getMonth();
 
@@ -101,7 +105,7 @@ const getTransactions = (from: number, to: number) => {
     })
     .filter((item: any) => item !== undefined);
 
-  const getData = (type: string) => {
+  const getData = (type: string): { [key: string]: number } => {
     return dataChart
       .filter((data: any) => data.type === type)
       .map((data: any) => data.category)
@@ -146,7 +150,7 @@ const setDate = (timestamp: number) => {
   });
 };
 
-const addData = (data: any) => {
+const addData = (data: IRequestTransaction) => {
   const transaction = {
     id: +new Date(),
     date: new Date().toLocaleDateString('en-US', {
