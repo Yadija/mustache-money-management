@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Report</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+    .username {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    .history {
+      margin-top: 40px;
+    }
+    .history table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    .history th, .history td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    .history th {
+      background-color: #f2f2f2;
+    }
+    .amount {
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <img src={{image}} alt={{user}}>
+    <p class="username">{{user}}</p>
+  </section>
+  <section class="history">
+    <h2>Transaction History</h2>
+    <table>
+      <tr>
+        <th>Type</th>
+        <th>Category</th>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Amount</th>
+      </tr>
+      {{#transactions}}
+      <tr>
+        <td>{{type}}</td>
+        <td>{{category}}</td>
+        <td>{{date}}</td>
+        <td>{{description}}</td>
+        <td class="amount">{{amount}}</td>
+      </tr>
+      {{/transactions}}
+    </table>
+  </section>
+</body>
+</html>
