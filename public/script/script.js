@@ -322,6 +322,30 @@ const main = () => {
     const body = document.querySelector('body');
     body.append(modalContainer);
   }
+
+  // button import
+  const showImportButton = () => {
+    const buttonImportPdf = document.createElement('button');
+    buttonImportPdf.innerText = 'PDF';
+    buttonImportPdf.addEventListener('click', () => {
+      window.open(`http://${window.location.host}/import/pdf`, '_blank');
+    })
+
+    const sectionImport = document.createElement('section');
+    sectionImport.className = 'interaction__button-import__button';
+
+    sectionImport.append(buttonImportPdf);
+    document.getElementById('buttonImport').append(sectionImport);
+  }
+
+  const buttonImport = document.getElementById('buttonImport');
+  buttonImport.addEventListener('click', () => {
+    if (buttonImport.children.length > 1) {
+      document.querySelector('.interaction__button-import__button').remove();
+    } else {
+      showImportButton();
+    }
+  })
 }
 
 main();

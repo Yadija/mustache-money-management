@@ -315,12 +315,50 @@ main {
 }
 
 .interaction__button-add:hover {
-  opacity: 0.8;
+  background: var(--lightblue);
 }
 
 .interaction__button-import {
   flex: 1;
   background: var(--greenyellow);
+  position: relative;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.interaction__button-import:hover {
+  background: var(--bermuda);
+}
+
+.interaction__button-import-title {
+  height: 100%;
+  font-weight: bold;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* interaction import button */
+.interaction__button-import__button {
+  background-color: var(--lightblue);
+  border-radius: 5px;
+  position: absolute;
+  top: calc(1* -30px);
+  left: 0;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.interaction__button-import__button button {
+  background-color: transparent;
+  padding: 5px 10px;
+}
+
+.interaction__button-import__button button:hover {
+  background-color: var(--lavender);
 }
 
 .chart-bar {
