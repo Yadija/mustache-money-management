@@ -12,7 +12,7 @@ This web application is designed to help users manage their finances effectively
 
 - Clone the repository
 ```bash
-git clone https://github.com/Yadija/mustache-money-management.git`
+git clone https://github.com/Yadija/mustache-money-management.git
 cd mustache-money-management
 ```
 ## 🚀Installation
